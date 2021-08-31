@@ -15,9 +15,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 // eslint-disable-next-line react/display-name
-const LinkBehavior = React.forwardRef((props: LinkProps, ref) => (
-  <Link {...props} />
-))
+const LinkBehavior = React.forwardRef((props: LinkProps, ref) => <Link {...props} />)
 
 export default function TopBar() {
   const classes = useStyles()

@@ -1,11 +1,4 @@
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Grid,
-  Typography,
-} from '@material-ui/core'
+import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
@@ -33,15 +26,8 @@ export function RecentBurgerCard(props: BurgerPlace) {
   return (
     <Grid item xs={matches ? 3 : 12}>
       <Card className={classes.root}>
-        <CardActionArea
-          className={classes.mediaArea}
-          href={`/myreviews/${props.slug}`}
-        >
-          <CardMedia
-            className={classes.image}
-            image={cardImage.default.src}
-            title="Contemplative Reptile"
-          />
+        <CardActionArea className={classes.mediaArea} href={`/myreviews/${props.slug}`}>
+          <CardMedia className={classes.image} image={cardImage.default.src} title="Contemplative Reptile" />
           <CardContent className={classes.contentArea}>
             <Typography gutterBottom variant="h5" component="h2">
               {props.review?.title}

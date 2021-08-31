@@ -10,10 +10,7 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json())
 const BurgerPlacePage: NextPage = () => {
   const router = useRouter()
   const { burgerSlug } = router.query
-  const { data, error }: SWRResponse<BurgerPlace, any> = useSWR(
-    `/api/restaurant?slug=${burgerSlug}`,
-    fetcher
-  )
+  const { data, error }: SWRResponse<BurgerPlace, any> = useSWR(`/api/restaurant?slug=${burgerSlug}`, fetcher)
   if (!data || error || !data.review) {
     console.log(error)
     return <div> error fetching your review</div>

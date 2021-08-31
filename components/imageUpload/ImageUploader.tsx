@@ -3,18 +3,18 @@ import { useDropzone } from 'react-dropzone'
 import { makeStyles } from '@material-ui/core/styles'
 import { Paper, Typography } from '@material-ui/core'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   container: {
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '20px',
+    padding: theme.spacing(2.5),
     borderWidth: '2px',
     borderRadius: '2px',
     borderColor: 'rgb(238, 238, 238)',
     borderStyle: 'dashed',
-    backgroundColor: 'rgb(250, 250, 250)',
+    backgroundColor: theme.palette.common.white,
     color: 'rgb(189, 189, 189)',
     outline: 'none',
     transition: 'border 0.24s ease-in-out 0s',
@@ -23,17 +23,16 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginTop: 16,
+    marginTop: theme.spacing(2),
   },
   thumb: {
     display: 'inline-flex',
     borderRadius: 2,
-    border: '1px solid #eaeaea',
-    marginBottom: 8,
-    marginRight: 8,
-    width: 100,
-    height: 100,
-    padding: 4,
+    marginBottom: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 250,
+    height: 250,
+    padding: theme.spacing(1),
     boxSizing: 'border-box',
   },
   thumbInner: {
@@ -43,15 +42,14 @@ const useStyles = makeStyles({
   },
   img: {
     display: 'block',
-    width: 'auto',
+    width: '100%',
     height: '100%',
   },
-})
+}))
 
-export function ImageUploaderWithPreview() {
+export function ImageUploaderWithPreview(props: { onNewFiles: (files: Array<File & { preview: string }>) => void }) {
   const [files, setFiles] = useState<Array<File & { preview: string }>>([])
   const classes = useStyles()
-
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     onDrop: (acceptedFiles) => {
@@ -61,6 +59,7 @@ export function ImageUploaderWithPreview() {
         })
       )
       setFiles(files)
+      props.onNewFiles(files)
     },
   })
 
@@ -81,9 +80,7 @@ export function ImageUploaderWithPreview() {
     <section className={classes.container}>
       <div {...getRootProps({ className: 'dropzone' })}>
         <input {...getInputProps()} />
-        <Typography>
-          Drag and drop some files here, or click to select your picture
-        </Typography>
+        <Typography>Drag and drop some files here, or click to select your picture</Typography>
       </div>
       <aside className={classes.thumbsContainer}>{thumbs}</aside>
     </section>

@@ -28,16 +28,13 @@ export default function Layout({
       <SWRConfig
         value={{
           refreshInterval: 3000,
-          fetcher: (resource, init) =>
-            fetch(resource, init).then((res) => res.json()),
+          fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()),
         }}
       >
         <CssBaseline />
         <TopBar />
         {HeaderComponent && HeaderComponent}
-        <main style={{ marginRight: '10%', marginLeft: '10%' }}>
-          {children}
-        </main>
+        <main style={{ marginRight: '10%', marginLeft: '10%' }}>{children}</main>
       </SWRConfig>
     </ThemeProvider>
   )

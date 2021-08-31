@@ -5,20 +5,13 @@ import { RestaurantInfoWindow } from './restaurantInfoWindow'
 import { RestaurantMapMarker } from './restaurantMapMarker'
 import { Typography } from '@material-ui/core'
 
-const containerStyle = {
-  width: '100%',
-  height: '500px',
-}
 const defaultPosition = {
   lat: 55.6636491054708,
   lng: 12.52207581186912,
 }
 
 function BurgerMapComponent({ apiKey }: { apiKey: string }) {
-  const {
-    data,
-    error,
-  }: SWRResponse<Array<BurgerPlace>, any> = useSWR('/api/burgers')
+  const { data, error }: SWRResponse<Array<BurgerPlace>, any> = useSWR('/api/burgers')
   const [currentLocation, setCurrentLocation] = useState({
     latitude: 0,
     longitude: 0,
@@ -27,46 +20,35 @@ function BurgerMapComponent({ apiKey }: { apiKey: string }) {
     lat: currentLocation.latitude,
     lng: currentLocation.longitude,
   })
-  const [currentlySelectedRestaurantId, setCurrentlySelectedRestaurantId] =
-    useState('')
+  const [currentlySelectedRestaurantId, setCurrentlySelectedRestaurantId] = useState('')
   const [showInfoWindow, setShowInfoWindow] = useState(false)
 
   useEffect(() => {
     if (navigator.geolocation) {
-      navigator.permissions
-        .query({ name: 'geolocation' })
-        .then(function (result) {
-          if (result.state === 'granted') {
-            navigator.geolocation.getCurrentPosition((pos) => {
-              setCurrentLocation(pos.coords)
-              setCurrentCenter({
-                lat: pos.coords.latitude,
-                lng: pos.coords.longitude,
-              })
+      navigator.permissions.query({ name: 'geolocation' }).then(function (result) {
+        if (result.state === 'granted') {
+          navigator.geolocation.getCurrentPosition((pos) => {
+            setCurrentLocation(pos.coords)
+            setCurrentCenter({
+              lat: pos.coords.latitude,
+              lng: pos.coords.longitude,
             })
-          } else if (result.state === 'prompt') {
-            console.log(
-              'Geolocation is not enabled. Please enable to use this feature'
-            )
-            setCurrentCenter(defaultPosition)
-          } else if (result.state === 'denied') {
-            console.log(
-              'Geolocation is not enabled. Please enable to use this feature'
-            )
-
-            //If denied then you have to show instructions to enable location
-          }
-          result.onchange = function () {}
-        })
+          })
+        } else if (result.state === 'prompt') {
+          console.log('Geolocation is not enabled. Please enable to use this feature')
+          setCurrentCenter(defaultPosition)
+        } else if (result.state === 'denied') {
+          console.log('Geolocation is not enabled. Please enable to use this feature')
+        }
+        result.onchange = function () {}
+      })
     } else {
       alert('Sorry Not available!')
     }
   }, [])
 
   function getCurrentlySelectedRestaurant(): BurgerPlace {
-    const possibleRestaurant = data?.find(
-      (burgerPlace) => burgerPlace.id == currentlySelectedRestaurantId
-    )
+    const possibleRestaurant = data?.find((burgerPlace) => burgerPlace.id == currentlySelectedRestaurantId)
     if (possibleRestaurant == undefined) {
       throw error
     }
@@ -76,11 +58,12 @@ function BurgerMapComponent({ apiKey }: { apiKey: string }) {
   return (
     <div>
       <Typography variant={'h4'}>Find your next burger below</Typography>
-      <LoadScript
-        googleMapsApiKey={apiKey} //TODO: fetch this from process.env
-      >
+      <LoadScript googleMapsApiKey={apiKey}>
         <GoogleMap
-          mapContainerStyle={containerStyle}
+          mapContainerStyle={{
+            width: '100%',
+            height: '500px',
+          }}
           center={currentCenter}
           zoom={13}
           options={{ disableDefaultUI: true }}
@@ -91,7 +74,7 @@ function BurgerMapComponent({ apiKey }: { apiKey: string }) {
               lat: currentLocation.latitude,
               lng: currentLocation.longitude,
             }}
-            label={'you are here :D'}
+            label={'You are here'}
           />
           {data?.map((burgerPlace) => (
             <RestaurantMapMarker

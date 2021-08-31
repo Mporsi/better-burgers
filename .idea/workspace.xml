@@ -5,8 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9533fda9-f429-484c-a2a6-e9fa9bfa858c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/api/burgers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Topmenu/topmenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Topmenu/topmenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/googleMap/mapHero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/googleMap/mapHero.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/googleMap/openingHours.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/googleMap/openingHours.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/googleMap/restaurantMapMarker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/googleMap/restaurantMapMarker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/hero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/hero.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/imageUpload/ImageUploader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/imageUpload/ImageUploader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/rating.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/rating.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/recentBurgers/RecentBurgerCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/recentBurgers/RecentBurgerCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/recentBurgers/recentBurgers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/recentBurgers/recentBurgers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_document.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/burgers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/burgers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/recentBurgers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/recentBurgers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/restaurant.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/restaurant.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/myreviews/[burgerSlug].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/myreviews/[burgerSlug].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/review/[burgerSlug].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/review/[burgerSlug].tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +78,7 @@
       <recent name="$PROJECT_DIR$/pages" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.lint">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -96,7 +114,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630245891084</updated>
-      <workItem from="1630245893179" duration="27091000" />
+      <workItem from="1630245893179" duration="27828000" />
+      <workItem from="1630406086070" duration="2308000" />
     </task>
     <servers />
   </component>
@@ -113,6 +132,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
